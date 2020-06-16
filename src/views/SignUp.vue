@@ -25,3 +25,7 @@
         }
     }
 </script>
+
+<style lang="sass">
+    @import "../assets/css/sign-styles/sign-styles.sass"
+</style>

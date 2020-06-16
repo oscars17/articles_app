@@ -183,9 +183,12 @@
         },
         methods: {
             validateFields() {
+                this.nameErrors = [];
+                this.emailErrors = [];
+                this.password1Errors = [];
+                this.password2Errors = [];
                 let userListStorage = JSON.parse(localStorage.getItem('user_list'));
                 const takenEmailList = userListStorage.map(x => x.email);
-
                 if (this.name.length < 1) {
                     this.nameErrors.push('Your name must contain at least one symbol');
                 }
@@ -198,7 +201,7 @@
                     this.emailErrors.push('Enter valid email');
                 }
                 else {
-                    if (takenEmailList.filter(x => x.email === this.email).length) {
+                    if (takenEmailList.filter(x => x === this.email).length) {
                         this.emailErrors.push('This email is already taken');
                     }
                 }
@@ -227,7 +230,3 @@
         },
     }
 </script>
-
-<style lang="sass">
-    @import '../assets/css/sign-styles/sign-styles'
-</style>
