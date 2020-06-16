@@ -20,4 +20,5 @@
     @import "assets/css/button"
     @import "assets/css/application/application"
     @import "assets/css/input"
+    @import "assets/css/animations"
 </style>
