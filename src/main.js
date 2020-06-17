@@ -16,10 +16,12 @@ if (authUser) {
     validatedUser ? store.commit('setLoggedStatus', true) :
                     localStorage.removeItem('auth_data');
 }
-store.commit('setPageLoading', false);
 
 new Vue({
     router,
     store,
     render: h => h(App),
+    mounted() {
+        store.commit('setPageLoading', false);
+    }
 }).$mount('#app');

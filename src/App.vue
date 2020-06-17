@@ -1,14 +1,14 @@
 <template>
-    <div class="app-wrap">
+    <div class="app-wrap" >
         <transition name="fade" mode="out-in">
-            <div class="app-wrap__header bold fs-22" :key="key">
+            <div class="app-wrap__header bold fs-22" :key="key" v-if="!pageLoading">
                 {{this.key}}
             </div>
         </transition>
         <div class="app-wrap__logout" v-if="isLogged" @click="logout">
         </div>
-        <transition name="fade" mode="out-in">
-            <router-view>
+        <transition name="fade" mode="out-in" >
+            <router-view v-if="!pageLoading">
             </router-view>
         </transition>
     </div>
@@ -26,6 +26,7 @@
         computed: {
             ...mapState({
                 isLogged: state => state.isLogged,
+                pageLoading: state => state.pageLoading
             }),
             key() {
                 return this.$route.meta.pageHeader;
