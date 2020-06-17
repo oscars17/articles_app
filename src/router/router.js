@@ -5,6 +5,9 @@ import SignIn from "@/views/SignIn";
 import SignUp from "@/views/SignUp";
 import Main from "@/views/Main";
 
+import store from "@/store";
+import MainArticleDetails from "@/components/Main/MainArticleDetails";
+
 Vue.use(VueRouter);
 
 
@@ -38,18 +41,46 @@ const routes = [
         name: 'article-list',
         component: Main,
         meta: {
-            pageHeader: 'Articles'
-        }
+            pageHeader: 'Articles',
+            requiresAuth: true,
+        },
+        children: [
+            {
+                path: '/articles/:id',
+                name: 'article-details',
+                components: {
+                    'article-details': MainArticleDetails
+                },
+                meta: {
+                    pageHeader: 'Details',
+                    requiresAuth: true,
+                }
+            }
+        ]
     },
-    {
-        path: '/',
-        name: 'article-details',
-    }
 ]
 
 const router = new VueRouter({
     routes,
     mode: 'history',
+})
+
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (!store.state.isLogged) {
+            next({ name: 'enter-screen' });
+        } else {
+            next();
+        }
+    }
+    else {
+        if (store.state.isLogged) {
+            next({name: 'article-list'});
+        }
+        else{
+            next();
+        }
+    }
 })
 
 export default router;

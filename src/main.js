@@ -5,24 +5,21 @@ import store from './store/index.js';
 
 Vue.config.productionTip = false
 
-import { mapState } from 'vuex';
+let userStorage = localStorage.getItem('user_list');
+if (!userStorage) localStorage.setItem('user_list', JSON.stringify([]));
+userStorage = JSON.parse(userStorage);
+let authUser = localStorage.getItem('auth_data');
+if (authUser) {
+    authUser = JSON.parse(authUser);
+    const validatedUser = userStorage.filter(x => x.password === authUser.password &&
+                                                  x.email === authUser.email)[0];
+    validatedUser ? store.commit('setLoggedStatus', true) :
+                    localStorage.removeItem('auth_data');
+}
+store.commit('setPageLoading', false);
 
 new Vue({
     router,
     store,
     render: h => h(App),
-    beforeCreate() {
-        const userStorage = localStorage.getItem('user_list');
-        if (!userStorage) return localStorage.setItem('user_list', JSON.stringify([]));
-        const authUser = localStorage.getItem('auth_user');
-        if (authUser) {
-            store.commit('setLoggedStatus', true);
-        }
-        store.commit('setPageLoading', false);
-    },
-    computed: {
-        ...mapState({
-            isLogged: state => state.isLogged,
-        })
-    }
 }).$mount('#app');

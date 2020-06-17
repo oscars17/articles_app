@@ -5,7 +5,12 @@
                 v-for="article in order ? filteredArticleList : [].concat(filteredArticleList).reverse()"
                 :key="article.id">
                 <div class="article-object__image">
-                    <img :src="article.image" />
+                    <router-link tag="img"
+                                 :src="article.image"
+                                 :to="{
+                                     name: 'article-details',
+                                     params: {id: article.id}
+                                 }"></router-link>
                 </div>
                 <div class="article-object__data">
                     <div class="article-object__tag">
@@ -36,7 +41,7 @@
             element.addEventListener('scroll',
                 () =>{this.$store.commit('setScrollPosition', element.scrollTop)});
         },
-        beforeDestroy() {
+        beforeRouteLeave() {
             const element = document.getElementById('article-list');
             element.removeEventListener('scroll',
                 () =>{this.$store.commit('setScrollPosition', element.scrollTop)});

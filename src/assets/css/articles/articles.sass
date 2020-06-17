@@ -1,8 +1,15 @@
+.article-list-view
+  position: relative
+
 .article-list
   list-style: none
   padding: 0
   overflow-y: scroll
-  height: 500px
+  height: 530px
+
+  &::-webkit-scrollbar
+    width: 0
+    background: transparent
 
   &__article-object
     display: flex
@@ -30,7 +37,29 @@
         height: 80px
         width: 80px
         border-radius: 16px
+        cursor: pointer
 
     &__end-list
       color: #CCA4A4
       text-align: center
+
+.article-details
+  z-index: 1
+  top: 0
+  position: absolute
+  width: 100%
+  height: 99%
+  background-color: #faf3f3
+
+  & img
+    height: 100px
+    width: 100%
+    object-fit: cover
+
+  &__sill
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+  &__footer
+    margin-top: 50px

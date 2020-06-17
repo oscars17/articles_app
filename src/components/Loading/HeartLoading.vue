@@ -1,5 +1,7 @@
 <template>
-    <div class="lds-heart"><div></div></div>
+    <div class="article-list-loading">
+        <div class="lds-heart"><div></div></div>
+    </div>
 </template>
 
 <script>

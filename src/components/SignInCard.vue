@@ -9,6 +9,7 @@
                 </div>
                 <div class="sign-card__row-line">
                     <input type="email"
+                           class="sign-input"
                            v-model="email"
                            @keydown.enter="validateUser"
                            :style="[!valid ? {'background': '#FF6683'} : '']">
@@ -22,6 +23,7 @@
                 </div>
                 <div class="sign-card__row-line">
                     <input type="password"
+                           class="sign-input"
                            v-model="password"
                            @keydown.enter="validateUser"
                            :style="[!valid ? {'background': '#FF6683'} : '']">
@@ -63,6 +65,7 @@
                 const user = userList.filter(x=> x.email === this.email && x.password === this.password)[0];
                 if (user) {
                     localStorage.setItem('auth_data', JSON.stringify(user));
+                    this.$store.commit('setLoggedStatus', true);
                     return this.$router.push({name: 'article-list'});
                 }
                 else {

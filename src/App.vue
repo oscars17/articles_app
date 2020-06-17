@@ -3,14 +3,29 @@
         <div class="app-wrap__header bold fs-22">
             {{this.$route.meta.pageHeader}}
         </div>
+        <div class="app-wrap__logout" v-if="isLogged" @click="logout">
+
+        </div>
         <router-view>
         </router-view>
     </div>
 </template>
 
 <script>
-    export default {
+    import { mapState } from 'vuex';
 
+    export default {
+        computed: {
+            ...mapState({
+                isLogged: state => state.isLogged,
+            }),
+        },
+        methods: {
+            logout() {
+                this.$store.commit('logout');
+                this.$router.push({name: 'enter-screen'});
+            }
+        }
     }
 </script>
 
