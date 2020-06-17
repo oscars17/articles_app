@@ -14,7 +14,7 @@
             </div>
         </div>
         <sign-in-error
-                v-if="showSignInError"
+                v-if="!valid"
                 @close-sign-in-error="setSignInError"
         >
         </sign-in-error>
@@ -24,17 +24,17 @@
 <script>
     import SignInCard from "@/components/SignInCard";
     import SignInError from "@/components/SignInError";
-
+    import { mapState } from 'vuex'
     export default {
         name: "SignIn",
-        data() {
-            return {
-                showSignInError: false,
-            }
-        },
         components: {
             'sign-in-card': SignInCard,
             'sign-in-error': SignInError,
+        },
+        computed: {
+            ...mapState({
+                valid: state => state.signInStore.signInValid,
+            })
         },
         methods: {
             setSignInError(status) {

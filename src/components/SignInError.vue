@@ -17,7 +17,7 @@
         name: "SignInError",
         methods: {
             closeSignInError() {
-                this.$emit('close-sign-in-error', false);
+                return this.$store.commit('setSignInValid', true);
             }
         }
     }
