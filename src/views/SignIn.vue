@@ -13,11 +13,13 @@
                 </router-link>
             </div>
         </div>
-        <sign-in-error
-                v-if="!valid"
-                @close-sign-in-error="setSignInError"
-        >
-        </sign-in-error>
+        <transition name="fade">
+            <sign-in-error
+                    v-if="!valid"
+                    @close-sign-in-error="setSignInError"
+            >
+            </sign-in-error>
+        </transition>
     </div>
 </template>
 

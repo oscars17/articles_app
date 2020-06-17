@@ -25,6 +25,7 @@
                     <input :type="showPassword ? 'text' : 'password'"
                            class="sign-input fs-14"
                            v-model="password"
+                           @keydown.enter="validateUser"
                            :style="[!valid ? {'background': '#FF6683'} : '']"
                     >
                     <div class="sign-card__eye" @click="showPassword = !showPassword">
