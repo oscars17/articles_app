@@ -3,6 +3,7 @@ import Vue from 'vue';
 import EnterScreen from "@/views/EnterScreen";
 import SignIn from "@/views/SignIn";
 import SignUp from "@/views/SignUp";
+import Main from "@/views/Main";
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,18 @@ const routes = [
         meta: {
             pageHeader: 'Sign Up'
         }
+    },
+    {
+        path: '/articles',
+        name: 'article-list',
+        component: Main,
+        meta: {
+            pageHeader: 'Articles'
+        }
+    },
+    {
+        path: '/',
+        name: 'article-details',
     }
 ]
 

@@ -1,12 +1,46 @@
 <template>
-    <div>
-
+    <div class="sign-view">
+        <sign-in-card
+            @show-sign-in-error="setSignInError"
+        ></sign-in-card>
+        <div class="sign-view__footer">
+            <div>
+                Dont have an account yet?
+            </div>
+            <div>
+                <router-link :to="{name: 'sign-up'}">
+                    Sign Up
+                </router-link>
+            </div>
+        </div>
+        <sign-in-error
+                v-if="showSignInError"
+                @close-sign-in-error="setSignInError"
+        >
+        </sign-in-error>
     </div>
 </template>
 
 <script>
+    import SignInCard from "@/components/SignInCard";
+    import SignInError from "@/components/SignInError";
+
     export default {
-        name: "SignIn"
+        name: "SignIn",
+        data() {
+            return {
+                showSignInError: false,
+            }
+        },
+        components: {
+            'sign-in-card': SignInCard,
+            'sign-in-error': SignInError,
+        },
+        methods: {
+            setSignInError(status) {
+                this.showSignInError = status;
+            }
+        }
     }
 </script>
 

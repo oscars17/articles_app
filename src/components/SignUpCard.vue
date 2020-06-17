@@ -9,7 +9,7 @@
                 </div>
                 <div class="sign-card__row-line">
                     <input type="text"
-                           class="fs-14"
+                           class="sign-input fs-14"
                            v-model="name"
                            :style="[nameErrors.length ? {'background': '#FF6683'} : '']"
                     >
@@ -28,7 +28,7 @@
                 </div>
                 <div class="sign-card__row-line">
                     <input type="email"
-                           class="fs-14"
+                           class="sign-input fs-14"
                            v-model="email"
                            :style="[emailErrors.length ? {'background': '#FF6683'} : '']"
                     >
@@ -48,7 +48,7 @@
                 </div>
                 <div class="sign-card__row-line">
                     <input :type="showPassword1 ? 'text' : 'password'"
-                           class="fs-14"
+                           class="sign-input fs-14"
                            v-model="password1"
                            :style="[password1Errors.length ? {'background': '#FF6683'} : '']"
                         >
@@ -87,7 +87,7 @@
                 </div>
                 <div class="sign-card__row-line">
                     <input :type="showPassword2 ? 'text' : 'password'"
-                               class="fs-14"
+                               class="sign-input fs-14"
                                v-model="password2"
                                :style="[password2Errors.length ? {'background': '#FF6683'} : '']"
                         >

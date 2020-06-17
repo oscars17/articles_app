@@ -1,9 +1,9 @@
 <template>
-    <div class="sign-up-view">
+    <div class="sign-view">
         <sign-up-card>
 
         </sign-up-card>
-        <div class="sign-up-view__footer">
+        <div class="sign-view__footer">
             <div>
                 Already have an account?
             </div>

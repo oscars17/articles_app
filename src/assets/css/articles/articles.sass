@@ -1,0 +1,36 @@
+.article-list
+  list-style: none
+  padding: 0
+  overflow-y: scroll
+  height: 500px
+
+  &__article-object
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    margin-bottom: 28px
+
+.article-object
+    &__tag
+      color: #3c4ca9
+      font-weight: 600
+
+    &__text
+      font-weight: 600
+      height: 44px
+      overflow: hidden
+      text-overflow: ellipsis
+
+    &__date
+      font-size: 10px
+
+    &__image
+      img
+        margin-right: 16px
+        height: 80px
+        width: 80px
+        border-radius: 16px
+
+    &__end-list
+      color: #CCA4A4
+      text-align: center
