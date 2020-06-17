@@ -3,14 +3,7 @@ const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
     'Sed bibendum dignissim fermentum. Sed at ultrices ex. ' +
     'Suspendisse venenatis ac ex sit amet eleifend. ' +
     'Phasellus id bibendum purus, non scelerisque leo. ' +
-    'Fusce placerat purus eu justo varius, at volutpat quam pretium. ' +
-    'Pellentesque vel dolor tempus mauris pellentesque tempor a ac tellus. ' +
-    'Fusce id urna nunc. Nunc dignissim, turpis nec fringilla tincidunt, ' +
-    'tellus est porttitor eros, non fringilla diam urna et enim. ' +
-    'Proin dolor sem, dictum eu nisl nec, euismod commodo risus. ' +
-    'Etiam vel aliquam tortor, quis interdum eros. ' +
-    'Vestibulum odio elit, gravida in tellus vitae, posuere iaculis lorem. ' +
-    'Integer non diam eget sem efficitur pulvinar eu quis diam.';
+    'Fusce placerat purus eu justo varius, at volutpat quam pretium. '
 const theme = {
     Medicine: 'https://media.istockphoto.com/photos/' +
         'heap-of-medical-pills-in-white-blue-and-other-colors-pills-in-plastic-picture-' +

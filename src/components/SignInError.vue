@@ -1,5 +1,5 @@
 <template>
-    <div class="sign-in-error">
+    <div class="sign-in-error fs-14">
         <span class="sign-in-error__text">
             Wrong email or password
         </span>

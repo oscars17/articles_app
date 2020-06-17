@@ -1,13 +1,16 @@
 <template>
     <div class="app-wrap">
-        <div class="app-wrap__header bold fs-22">
-            {{this.$route.meta.pageHeader}}
-        </div>
+        <transition name="fade" mode="out-in">
+            <div class="app-wrap__header bold fs-22" :key="key">
+                {{this.key}}
+            </div>
+        </transition>
         <div class="app-wrap__logout" v-if="isLogged" @click="logout">
-
         </div>
-        <router-view>
-        </router-view>
+        <transition name="fade" mode="out-in">
+            <router-view>
+            </router-view>
+        </transition>
     </div>
 </template>
 
@@ -19,6 +22,9 @@
             ...mapState({
                 isLogged: state => state.isLogged,
             }),
+            key() {
+                return this.$route.meta.pageHeader;
+            }
         },
         methods: {
             logout() {

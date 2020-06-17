@@ -154,7 +154,7 @@
                     email: '^[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+@[a-zA-Z0-9]' +
                         '(?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?' +
                         '(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$',
-                    password: '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$',
+                    password: '^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[a-z]).{8,}$',
                 },
             }
         },
@@ -192,11 +192,10 @@
                 if (this.name.length < 1) {
                     this.nameErrors.push('Your name must contain at least one symbol');
                 }
-                else if (this.name.length > 8) {
-                    this.nameErrors.push('Your name must contain less than 8 symbols');
+                else if (this.name.length > 25) {
+                    this.nameErrors.push('Your name must contain less than 25 symbols');
                 }
                 const emailValidation = this.email.match(this.regexpValidators.email, this.email);
-                console.log(emailValidation);
                 if (!emailValidation) {
                     this.emailErrors.push('Enter valid email');
                 }
@@ -206,7 +205,6 @@
                     }
                 }
                 const passwordValidation = this.password1.match(this.regexpValidators.password, this.password1);
-                console.log(passwordValidation);
                 if (!passwordValidation) {
                     this.password1Errors.push('Enter a valid password');
 
@@ -224,7 +222,8 @@
                     }
                     userListStorage.push(payload);
                     localStorage.setItem('auth_data', JSON.stringify(payload));
-                    localStorage.setItem('user_list', JSON.stringify(userListStorage))
+                    localStorage.setItem('user_list', JSON.stringify(userListStorage));
+                    this.$router.push({name: 'sign-in'});
                 }
             },
         },
