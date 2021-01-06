@@ -8,7 +8,7 @@
     "project": "npm-run-all --parallel rest-api serve"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "json-server": "^0.16.1",
     "node-sass": "^4.14.1",
